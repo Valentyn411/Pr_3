@@ -1,0 +1,41 @@
+Завдання 5. 
+Для класів Land і Water задати оброблювачі повідомлень, які при зверненні 
+до них повертають повідомлення про вид транспорту. Викликати обробник для класів «Boat» і «Gibrid». Визначити, які повідомлення виводяться при цьому? 
+
+Результат роботи:
+
+class Transport:
+    def __init__(self):
+        pass
+
+class Land(Transport):
+    def get_transport_type(self):
+        return "Land transport"
+
+class Water(Transport):
+    def get_transport_type(self):
+        return "Water transport"
+
+class Auto(Land):
+    pass
+
+class Gibrid(Land):
+    pass
+
+class Boat(Water):
+    pass
+
+#Створюємо об'єкти класів
+boat = Boat()
+gibrid = Gibrid()
+
+#Виклик обробника 
+print(boat.get_transport_type())  
+print(gibrid.get_transport_type())  
+
+
+При виклику методу get_transport_type() для об'єкта boat класу Boat виводиться повідомлення "Водний транспорт". Це тому, що клас Boat успадковує метод get_transport_type() від свого батьківського класу Water.
+
+При виклику методу get_transport_type() для об'єкта gibrid класу Gibrid виводиться повідомлення "Наземний транспорт". Це тому, що клас Gibrid успадковує метод get_transport_type() від свого батьківського класу Land.
+
+Таким чином, через механізм успадкування класи-нащадки одержують доступ до методів своїх батьківських класів, що дозволяє визначати специфічну поведінку для кожного типу об'єктів в ієрархії класів.
